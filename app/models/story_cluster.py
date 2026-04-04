@@ -1,0 +1,1 @@
+C:\Users\CHETHAN KUMAR\OneDrive\Documents\CodinStuff\AI\automation_bot\twitter-automation-bot\app\models\tweet.py

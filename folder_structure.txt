@@ -1,0 +1,54 @@
+twitter-automation-bot/
+│
+├── .venv/
+├── README.md
+├── pyproject.toml
+│
+├── app/
+│   │
+│   ├── main.py
+│   │
+│   ├── config/
+│   │   └── settings.py
+│   │
+│   ├── db/
+│   │   ├── connection.py
+│   │   ├── raw_article_repository.py
+│   │   ├── article_repository.py
+│   │   └── tweet_repository.py
+│   │
+│   ├── models/
+│   │   ├── raw_article.py
+│   │   ├── article.py
+│   │   └── tweet.py
+│   │
+│   ├── ingestion/
+│   │   ├── rss_fetcher.py
+│   │   ├── raw_article_loader.py
+│   │   └── ingestion_pipeline.py
+│   │
+│   ├── build/
+│   │   ├── scraper.py
+│   │   ├── article_transformer.py
+│   │   ├── embedder.py
+│   │   ├── clusterer.py
+│   │   ├── representative_selector.py
+│   │   └── article_builder_pipeline.py
+│   │
+│   ├── generation/
+│   │   ├── prompt_builder.py
+│   │   ├── tweet_generator.py
+│   │   └── generation_pipeline.py
+│   │
+│   ├── posting/
+│   │   ├── threads_poster.py
+│   │   └── posting_pipeline.py
+│   │
+│   └── utils/
+│       ├── text_cleaner.py
+│       ├── datetime_utils.py
+│       └── logger.py
+│
+└── sql/
+    ├── schema.sql
+    └── alter_tables.sql
