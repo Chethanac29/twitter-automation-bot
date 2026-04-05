@@ -4,14 +4,16 @@ from typing import Optional
 
 @dataclass
 class Article:
-    external_id: str
-    title: str
-    summary: str
-    link: str
-    content: str
-    published_at: datetime
+    id: Optional[int] = None
+    external_id: str = ""
+    title: str = ""
+    summary: str = ""
+    content: str = ""
+    link: str = ""
+    source_domain: str = ""
+    source_name: str = ""
+    published_at: Optional[datetime] = None
+    created_at: Optional[datetime] = None
+    is_processed: bool = False
+    processed_at: Optional[datetime] = None
 
-    source_domain: str
-    source_name: str
-    published_at: Optional[datetime]
-    created_at: datetime

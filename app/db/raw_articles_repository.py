@@ -145,7 +145,7 @@ def mark_articles_as_built(article_ids: List[int]):
 
     query = """
     UPDATE raw_articles
-    SET is_processed = TRUE
+    SET is_built = TRUE
     WHERE id = ANY(%s)
     """
     conn = get_connection()

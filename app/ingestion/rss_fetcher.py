@@ -1,6 +1,6 @@
 import feedparser
 from typing import List
-from models.raw_article import RawArticle
+from app.models.raw_article import RawArticle
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 def fetch_rss_articles(rss_feeds: List[str]) -> List[RawArticle]:
