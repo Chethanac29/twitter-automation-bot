@@ -4,9 +4,9 @@ import time
 from models.article import Article
 from models.raw_article import RawArticle
 
-from ingestion.scraper import scrape_article
+from app.build.scraper import scrape_article
 from ingestion.rss_fetcher import fetch_rss_articles
-from ingestion.article_transformer import build_article
+from app.build.article_transformer import build_article
 
 from db.connection import get_connection
 from db.raw_articles_repository import insert_raw_articles

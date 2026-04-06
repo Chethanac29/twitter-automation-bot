@@ -8,8 +8,6 @@ RSS_FEEDS = [
     "https://sports.ndtv.com/rss/cricket",
     "https://timesofindia.indiatimes.com/rssfeeds/54829575.cms",
     "https://www.hindustantimes.com/feeds/rss/cricket/ipl/rssfeed.xml",
-    "https://www.mykhel.com/rss/feeds/sports-cricket-fb.xml",
-    "https://www.mykhel.com/rss/feeds/cricket-rumours-fb.xml",
     "https://www.cricbuzz.com/rss/content/story/feeds/0.xml",
     "https://www.indiatvnews.com/rssnews/topstory-sports.xml",
     "https://cricketmood.com/rss.xml",
