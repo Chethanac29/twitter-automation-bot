@@ -109,29 +109,28 @@ git clone https://github.com/yourusername/twitter-automation-bot.git
 cd twitter-automation-bot
 ```
 
-### Step 2: Create Virtual Environment
+### Step 2: Setup with uv
 
 ```bash
-# Create virtual environment
-python -m venv .venv
+# Install/update uv (if not already installed)
+# Windows
+pip install uv
 
-# Activate (Windows)
-.venv\Scripts\activate
-
-# Activate (macOS/Linux)
-source .venv/bin/activate
+# macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### Step 3: Install Dependencies
 
 ```bash
-pip install -e .
-```
+# Create virtual environment and install dependencies
+uv sync
 
-Or install directly:
+# Activate virtual environment (Windows)
+.venv\Scripts\activate
 
-```bash
-pip install -r requirements.txt
+# Activate virtual environment (macOS/Linux)
+source .venv/bin/activate
 ```
 
 ---
@@ -325,13 +324,13 @@ The project uses code quality tools configured in `pyproject.toml`:
 
 ```bash
 # Format code with Black
-black app/
+uv run black app/
 
 # Sort imports with isort
-isort app/
+uv run isort app/
 
 # Both in one command
-black . && isort .
+uv run black . && uv run isort .
 ```
 
 ### Logging
@@ -422,7 +421,7 @@ psql postgresql://user:password@localhost:5432/twitter_bot -c "SELECT 1"
 
 ```bash
 # Reinstall dependencies
-pip install --upgrade -e .
+uv sync
 ```
 
 ---
