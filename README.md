@@ -69,7 +69,7 @@ The bot follows a **multi-stage pipeline architecture**:
                            ⬇️
 ┌──────────────────────────────────────────────────────────────┐
 │ 4️⃣  POSTING PIPELINE                                        │
-│ • Fetch pending tweets                                      │
+│ • Fetch pending & failed tweets                             │
 │ • Post to Threads API                                       │
 │ • Update posting status in database                         │
 └──────────────────────────────────────────────────────────────┘
