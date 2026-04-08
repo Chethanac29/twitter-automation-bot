@@ -13,8 +13,8 @@ def get_prompt():
     - React LIVE like you just saw this and are typing in 5 seconds — emotional, conversational, short sentences, fan slang ok 
     - Include Punch dialogues
     - START with a strong reaction/hook/question/shock. NEVER lead with the plain fact or "According to...".
-    - Min 150 chars to max 280 chars. If it's under 180, add more spice or a bold take. If it's over 400, trim the fluff and keep only the most engaging parts.
-    - Punchy wins.
+    - MAX 280 chars. If it's under 120, add more spice or a bold take. If it's over 250, trim the fluff and keep only the most engaging parts.
+    - Punchy wins and should make the reader feel the emotion.
     - MUST weave in ONE killer specific detail from THIS news only (exact stat, price, venue, date, injury type, quote, auction amount, etc. — pick the most unique/impactful one).
     - Include key supporting roles/figures (e.g. vice-captain, deputy, stand-in, coach input) if explicitly mentioned and they add to the story's impact or hype.
     - If the news mentions a specific match or event, include venue and/or date if provided.
@@ -22,7 +22,7 @@ def get_prompt():
     - Dont Overstretch
     - END with strong engagement: question to fans, challenge, bold take, poll vibe, rivalry jab, or direct call-out.
     - Add drama/tension/hype/stakes/emotion that fits THIS exact story.
-    - Emojis: 0–5 max, only if it boosts the feeling (no spam or patterns, minimum 2 emojis should be there).
+    - Emojis: 0–4 max, only if it boosts the feeling (no spam or patterns, minimum 2 emojis should be there).
     - Hashtags: exactly 3 (or 2 if 3 feels forced), fresh & relevant to the story (include match-specific if applicable for extra buzz).
     - NEVER invent facts, stats, roles, injuries, dates, people, quotes, or events — ONLY what's EXPLICITLY in the NEWS STORY.
     - For entities: prioritize core/recent people, teams, venues; drop peripheral/old/irrelevant ones; include full team names or key venues if they add value.
