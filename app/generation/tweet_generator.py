@@ -34,18 +34,18 @@ class TweetOutput(BaseModel):
 #     base_url="https://integrate.api.nvidia.com/v1/",
 #     api_key=GEMMA4,
 # )
-llm = ChatOpenAI(
-    model="qwen/qwen3.6-plus:free",
-    temperature=0.7,
-    base_url="https://openrouter.ai/api/v1",
-    api_key=OPEN_ROUTER_API_KEY,
-)
 # llm = ChatOpenAI(
-#     model="qwen3.5:9b",
+#     model="qwen/qwen3.6-plus:free",
 #     temperature=0.7,
-#     base_url="http://localhost:11434/v1",
-#     api_key='ollama',
+#     base_url="https://openrouter.ai/api/v1",
+#     api_key=OPEN_ROUTER_API_KEY,
 # )
+llm = ChatOpenAI(
+    model='deepseek-v3.1:671b-cloud', #"qwen3.5:9b",
+    temperature=0.75,
+    base_url="http://localhost:11434/v1",
+    api_key='ollama',
+)
 structured_llm = llm.with_structured_output(TweetOutput)
 
 
@@ -67,7 +67,7 @@ def build_news_input(article: Article) -> str:
     Build formatted news context for tweet generation.
     """
 
-    content_snippet = article.content[:3000] if article.content else ""
+    # content_snippet = article.content[:3000] if article.content else ""
 
     return f"""
         Title: {article.title}
@@ -75,7 +75,7 @@ def build_news_input(article: Article) -> str:
         Summary: {article.summary}
 
         Content:
-        {content_snippet}
+        {article.content}
         """.strip()
 
 

@@ -1,51 +1,32 @@
 import time
-from ingestion.piepeline import ingest_pipeline
-from processing.clustering import cluster_pipeline
-from processing.selector import select_from_cluster
-from llm.tweet_generator import generate_tweet
-from posting.post_tweet import post_to_threads
-BLOCKED_SOURCES = {
-    "www.espncricinfo.com"
-} 
+from app.ingestion.ingestion_pipeline import run_ingestion_pipeline
+from app.posting.threads_posting_pipeline import run_threads_posting_pipeline
+from app.processing.article_builder_pipeline import run_article_builder_pipeline
+from app.utils.logger import get_logger
+from app.generation.tweet_generation_pipeline import run_tweet_generation_pipeline
 
-
+logger = get_logger(__name__)
 def main():
     print("Hello from twitter-automation-bot!")
-    rss_feeds = ["https://sportstar.thehindu.com/cricket/ipl/feeder/default.rss",
-                 "https://www.espncricinfo.com/rss/content/story/feeds/0.xml"]
-    
-    articles = ingest_pipeline(rss_feeds)
+    while True:
+        logger.info("Starting main loop of twitter-automation-bot...")
 
-    # print(f"Total number of articles processed {len(articles)}")
-    # for article in articles:
-        
-    #     print("-" * 50)
-    #     print("Title: ", article.title)
-    #     print("source: ", article.source_name)
-    #     print("Content Preview: ", article.content[:100])
-    
-    clusters = cluster_pipeline(articles)
-    # print('Total cluster articles: ', len(clusters))
+        # Step 1: Run the ingestion pipeline to fetch new tweets
+        run_ingestion_pipeline()
 
-    # for i, cluster in enumerate(clusters[:5]):
-    #     print(f"\nCluster {i+1}:")
-    #     for article in cluster:
-    #         print("-", article.title)
-    
-    representatives = select_from_cluster(clusters)
-    
-    # print(f"Selected {len(representatives)} representative articles")
+        # Step 2: Run the article builder pipeline to create articles from tweets
+        run_article_builder_pipeline()
 
-    for article in representatives:
-        tweet_json = generate_tweet(article)
+        # Step 3: Run the tweet generation pipeline to create new tweets based on articles
+        run_tweet_generation_pipeline()
 
-        print("\n" + "="*50)
-        print(tweet_json)
-        if tweet_json == "" or len(tweet_json) < 50:
-            continue 
-        else:
-            post_to_threads(text_content=tweet_json)
-        
+        # Step 4: Run the Threads posting pipeline to post tweets to Threads
+        run_threads_posting_pipeline()
+
+        logger.info("Main loop completed. Sleeping for 1 minute before next iteration...")
+        time.sleep(60)  # Sleep for 1 minute before running the loop again
+
+    
 
 
 

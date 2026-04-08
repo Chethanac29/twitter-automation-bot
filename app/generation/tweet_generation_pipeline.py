@@ -87,7 +87,7 @@ def build_tweets(articles: List[Article], platform: str = "threads") -> Tuple[Li
 # =========================================
 # MAIN PIPELINE
 # =========================================
-def run_tweet_generation_pipeline(limit: int = 20, platform: str = "threads"):
+def run_tweet_generation_pipeline(limit: int = 50, platform: str = "threads"):
     """
     Main tweet generation pipeline.
     """

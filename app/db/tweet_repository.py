@@ -59,9 +59,9 @@ def fetch_pending_tweets(limit: int = 100) -> List[Tweet]:
     logger.info(f'Fetching up to {limit} pending tweets from the database.')
 
     query = '''
-    SELECT id, article_id, tweet_text, platform, status
+    SELECT id, article_id, tweet_text, platform, status, created_at, posted_at
     FROM tweets
-    WHERE status = 'pending'
+    WHERE status in ('pending', 'failed')
     ORDER BY created_at ASC
     LIMIT %s
     '''
